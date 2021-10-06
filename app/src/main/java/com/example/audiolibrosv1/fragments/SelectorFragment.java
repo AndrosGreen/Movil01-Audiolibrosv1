@@ -6,6 +6,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.hardware.camera2.params.Capability;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -25,6 +26,7 @@ import com.example.audiolibrosv1.Libro;
 import com.example.audiolibrosv1.MainActivity;
 import com.example.audiolibrosv1.R;
 import com.google.android.material.snackbar.Snackbar;
+import com.google.android.material.tabs.TabLayout;
 
 import java.util.Vector;
 
@@ -133,6 +135,14 @@ public class SelectorFragment extends Fragment {
                         recyclerView.getChildAdapterPosition(v));
             }
         });
+
+        TabLayout tabs = actividad.findViewById(R.id.tabs);
+        if(tabs!=null) {
+            tabs.addTab(tabs.newTab().setText("Todos"));
+            tabs.addTab(tabs.newTab().setText("Nuevos"));
+            tabs.addTab(tabs.newTab().setText("Leidos"));
+            tabs.setTabMode(TabLayout.MODE_SCROLLABLE);
+        }
 
         return vista;
     }
